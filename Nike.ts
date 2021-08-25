@@ -10,6 +10,7 @@ export class Nike {
 
 //Below is a complied list of all the selctors I will be using in order for the Nike project
 
+//This Xpath represents the Customzie tab on the homepage of Nike.com
 customizeTab: By = By.xpath('//a[@href="https://www.nike.com/nike-by-you"]');
 
 //Clicks the Men's menu button right after the customize screen
@@ -30,11 +31,19 @@ pop_upSkip: By = By.xpath('//button[@class="body-3 ncss-btn-secondary-dark css-1
 //This Xpath clicks red as the base color for the shoe 
 baseRed: By = By.xpath('(//button[@data-testid="marketing-component-option"])[3]');
 
-// next_pageArrow: By = By.xpath('//div[@class="d-sm-flx flx-ai-sm-fe css-1daw9dd"]');
+//Updated 'Next page arrow' that is more unique and specific  
 next_pageArrow: By = By.xpath('//div[@data-testid="mc-next"]');
+//Secondary locator for the 'Next Page' arrow found on the customization page
+//next_pageArrow: By = By.xpath('//div[@class="d-sm-flx flx-ai-sm-fe css-1daw9dd"]');
 
+//'Previous page arrow' that returns user back 1 page
 prev_pageArrow: By = By.xpath('//div[@data-testid="mc-prev"]');
 
+////////////////////////////////////////////////
+//The locators listed below are the many customization options/pieces that you can change on a shoe from the order that you would choose them on the Nike website
+//The numbers associated in the Xpaths represent the color number value within the array
+////////////////////////////////
+ 
 Left_tongueBlue: By = By.xpath('(//button[@data-testid="marketing-component-option"])[6]');
 
 Right_tongueBlue: By = By.xpath('(//button[@data-testid="marketing-component-option"])[6]');
@@ -59,8 +68,7 @@ R_shoeLace: By = By.xpath('(//button[@data-testid="marketing-component-option"])
 
 shoe_Lining: By = By.xpath('(//button[@data-testid="marketing-component-option"])[12]');
 
-// midSoles: By = By.xpath('(//button[@data-testid="marketing-component-option"])[4]');
-midSoles: By = By.xpath("//button[contains(@class, 'd-sm-flx flx-ai-sm-c flx-jc-sm-c css-ehgu1c flx-gro-sm-0')]");
+midSoles: By = By.xpath('(//button[@data-testid="marketing-component-option"])[4]');
 
 midSoleNext: By = By.xpath('//div[@class="d-sm-flx flx-ai-sm-c flx-jc-sm-fs css=pzhe17"]');
 
@@ -70,16 +78,23 @@ glow_darkButton: By = By.xpath('(//button[@data-testid="marketing-component-opti
 
 gd_White: By = By.xpath('(//button[@data-testid="marketing-component-option"])[1]');
 
-shoe_TextButton: By = By.xpath('//button[@data-testid="marketing-component-option-pid"]');
+//Locators removed from testing
 
-inputField_A: By = By.xpath('//input[@data-testid="marketing-component-pid-input-0"]');
+// shoe_LogoButton: By = By.xpath('//button[@data-testid="marketing-component-option-other"]');
 
-inputField_B: By = By.xpath('//input[@data-testid="marketing-component-pid-input-1"]');
+// shoe_LogoVolt: By = By.xpath('(//button[@data-testid="marketing-component-option-other"])[12]');
 
+// inputField_A: By = By.xpath('//input[@data-testid="marketing-component-pid-input-0"]');
+
+// inputField_B: By = By.xpath('//input[@data-testid="marketing-component-pid-input-1"]');
+
+//The locator below represents the Accept button found on the customization page
 accept_Button: By = By.xpath('//button[@data-testid="pid-marketing-component-accept"]');
 
+//The locator below represents the Preview button on the customization page
 preview_Button: By = By.xpath('//button[@data-testid="tray-preview-open-button"]');
 
+//The locator below represents the Done button on the customization page
 Done_Button: By = By.xpath('//button[@data-testid="done-control"]');
 
 
@@ -87,10 +102,11 @@ constructor(driver: WebDriver) {
     this.driver = driver;
 }
 
+// The customizeProcess async below will go through the process of creating a pair of shoes, starting from the Nike hoempage
 
 async customizeProcess() {
 await this.driver.get(this.url);
-await this.driver.sleep(1000);
+await this.driver.sleep(3000);
 await this.driver.wait(until.elementLocated(this.customizeTab));
 await this.driver.wait(until.elementIsVisible(await this.driver.findElement(this.customizeTab)));
 await this.driver.findElement(this.customizeTab).click();
@@ -116,7 +132,7 @@ await this.driver.sleep(2000);
 await this.driver.wait(until.elementLocated(this.customizeButton));
 await this.driver.wait(until.elementIsVisible(await this.driver.findElement(this.customizeButton)));
 await this.driver.findElement(this.customizeButton).click();
-await this.driver.sleep(1000);
+await this.driver.sleep(2000);
 
 await this.driver.wait(until.elementLocated(this.pop_upSkip));
 await this.driver.wait(until.elementIsVisible(await this.driver.findElement(this.pop_upSkip)));
@@ -263,11 +279,6 @@ await this.driver.wait(until.elementIsVisible(await this.driver.findElement(this
 await this.driver.findElement(this.next_pageArrow).click();
 await this.driver.sleep(1000);
 
-// await this.driver.wait(until.elementLocated(this.midSoleNext));
-// await this.driver.wait(until.elementIsVisible(await this.driver.findElement(this.midSoleNext)));
-// await this.driver.findElement(this.midSoleNext).click();
-// await this.driver.sleep(1000);
-
 await this.driver.wait(until.elementLocated(this.foreFoot_Clip));
 await this.driver.wait(until.elementIsVisible(await this.driver.findElement(this.foreFoot_Clip)));
 await this.driver.findElement(this.foreFoot_Clip).click();
@@ -293,46 +304,34 @@ await this.driver.wait(until.elementIsVisible(await this.driver.findElement(this
 await this.driver.findElement(this.next_pageArrow).click();
 await this.driver.sleep(1000);
 
-await this.driver.wait(until.elementLocated(this.shoe_TextButton));
-await this.driver.wait(until.elementIsVisible(await this.driver.findElement(this.shoe_TextButton)));
-await this.driver.findElement(this.shoe_TextButton).click();
-await this.driver.sleep(2000);
-
-
 }
 
-async typeInitial1(text: string) {
-    return this.sendKeys(this.inputField_A, `${text}`);
+//Tried string interpolation to add customzed intials into shoes; however Nike UI does not register it 
 
-}
-async typeInitial2(text: string) {
-    return this.sendKeys(this.inputField_B, `${text}`);
+// async typeInitial1(text: string) {
+//     return this.sendKeys(this.inputField_A, `${text}`);
 
-}
+// }
+// async typeInitial2(text: string) {
+//     return this.sendKeys(this.inputField_B, `${text}`);
 
+// }
+
+//The finishProcess below will showcase the shoes and then click the Done button
 async finishProcess () {
-
-await this.driver.wait(until.elementLocated(this.accept_Button));
-await this.driver.wait(until.elementIsVisible(await this.driver.findElement(this.accept_Button)));
-await this.driver.findElement(this.accept_Button).click();
-await this.driver.sleep(1000);
 
 await this.driver.wait(until.elementLocated(this.preview_Button));
 await this.driver.wait(until.elementIsVisible(await this.driver.findElement(this.preview_Button)));
 await this.driver.findElement(this.preview_Button).click();
-await this.driver.sleep(3000);
+await this.driver.sleep(5000);
 
 await this.driver.wait(until.elementLocated(this.Done_Button));
 await this.driver.wait(until.elementIsVisible(await this.driver.findElement(this.Done_Button)));
 await this.driver.findElement(this.Done_Button).click();
-await this.driver.sleep(1000);
+await this.driver.sleep(3000);
 
 
 }
-
-
-
-
 
 
 

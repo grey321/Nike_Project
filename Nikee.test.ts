@@ -7,21 +7,15 @@ const driver: WebDriver = new Builder()
 
 const page = new Nike(driver);
 //Biolerplate above
+
 const actions = driver.actions();
 
-
-test("Test getting to the Customized men's section page and pick a shoe", async () => {
+test("This test will go through the process of creating a pair of customized shoes through the Nike website", async () => {
 await driver.manage().window().maximize();
 await page.customizeProcess();
-await page.typeInitial1("g");
-await page.typeInitial2("b");
-// await page.sendKeys(page.inputField_A,"g\n");
-// await page.sendKeys(page.inputField_B,"b\n");
 await page.finishProcess();
 await driver.sleep(3000);
-
 })
-
 
 afterAll(async () => {
 await driver.quit();
