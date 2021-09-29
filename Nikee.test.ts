@@ -1,3 +1,7 @@
+/**
+ * File serves as a test for the Customization shoe test 
+ * 
+ */
 import { Nike } from "./Nike";
 const chromedriver = require("chromedriver");
 import { WebDriver, Builder, Capabilities, By, until, Key } from "selenium-webdriver";
