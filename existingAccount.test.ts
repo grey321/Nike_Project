@@ -1,3 +1,7 @@
+/**
+ *File serves as a test that will sign-in to a pre existing account and return to homepage
+ */
+
 import { Nike } from "./sign_In";
 const chromedriver = require("chromedriver");
 import { WebDriver, Builder, Capabilities, By, until, Key } from "selenium-webdriver";
