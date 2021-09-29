@@ -1,4 +1,8 @@
-// import { exception } from "console";
+/////The following .ts file will serve as a resource path to the Nike.test.ts file/////
+/////for use of methods and xpaths to better simplified on the test file/////
+//////////////////////////////////////////////////////////////////////////////////////
+
+
 import { By, until, WebDriver } from "selenium-webdriver";
 //Imported Boiler Plate/Page Object model ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -33,16 +37,14 @@ baseRed: By = By.xpath('(//button[@data-testid="marketing-component-option"])[3]
 
 //Updated 'Next page arrow' that is more unique and specific  
 next_pageArrow: By = By.xpath('//div[@data-testid="mc-next"]');
-//Secondary locator for the 'Next Page' arrow found on the customization page
-//next_pageArrow: By = By.xpath('//div[@class="d-sm-flx flx-ai-sm-fe css-1daw9dd"]');
 
 //'Previous page arrow' that returns user back 1 page
 prev_pageArrow: By = By.xpath('//div[@data-testid="mc-prev"]');
 
-////////////////////////////////////////////////
-//The locators listed below are the many customization options/pieces that you can change on a shoe from the order that you would choose them on the Nike website
-//The numbers associated in the Xpaths represent the color number value within the array
-////////////////////////////////
+/**
+ * The locators listed below are the many customization options/pieces that you can change on a shoe from the order that you would choose them on the Nike website
+ * The numbers associated in the Xpaths represent the color number value within the array
+*/
  
 Left_tongueBlue: By = By.xpath('(//button[@data-testid="marketing-component-option"])[6]');
 
@@ -77,16 +79,6 @@ foreFoot_Clip: By = By.xpath('(//button[@data-testid="marketing-component-option
 glow_darkButton: By = By.xpath('(//button[@data-testid="marketing-component-option-other"])[3]');
 
 gd_White: By = By.xpath('(//button[@data-testid="marketing-component-option"])[1]');
-
-//Locators removed from testing
-
-// shoe_LogoButton: By = By.xpath('//button[@data-testid="marketing-component-option-other"]');
-
-// shoe_LogoVolt: By = By.xpath('(//button[@data-testid="marketing-component-option-other"])[12]');
-
-// inputField_A: By = By.xpath('//input[@data-testid="marketing-component-pid-input-0"]');
-
-// inputField_B: By = By.xpath('//input[@data-testid="marketing-component-pid-input-1"]');
 
 //The locator below represents the Accept button found on the customization page
 accept_Button: By = By.xpath('//button[@data-testid="pid-marketing-component-accept"]');
@@ -306,16 +298,16 @@ await this.driver.sleep(1000);
 
 }
 
-//Tried string interpolation to add customzed intials into shoes; however Nike UI does not register it 
+/**
+ * Tried string interpolation to add customzed intials into shoes; however Nike UI does not register it 
+ * async typeInitial1(text: string) {
+ *      returnthis.sendkeys(this.inputField_A, `${text}`)
+ *  }
+ * async typeInitial2(text: string) {
+ *      return this.sendKeys(this.inputField_B, `${text}`)
+ *  }
+*/
 
-// async typeInitial1(text: string) {
-//     return this.sendKeys(this.inputField_A, `${text}`);
-
-// }
-// async typeInitial2(text: string) {
-//     return this.sendKeys(this.inputField_B, `${text}`);
-
-// }
 
 //The finishProcess below will showcase the shoes and then click the Done button
 async finishProcess () {
