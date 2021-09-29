@@ -14,7 +14,7 @@ test("Test will sign-in to a pre existing account and return to homepage", async
 await driver.manage().window().maximize();
 await page.account_signIn();
 await page.typeEmail('greyxx321@gmail.com'); 
-await page.typePassword('Gambino2415!'); 
+await page.typePassword('Simba007!'); 
 await page.finish_Process();
 })
 
