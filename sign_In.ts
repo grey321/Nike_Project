@@ -22,6 +22,9 @@ SignIn_Button: By = By.xpath("//input[@value='SIGN IN']");
 constructor(driver: WebDriver) {
     this.driver = driver;
 }
+ /**Methods 'account_signIn' and 'finish_Process' will execute 
+  * test 'existingAccount.test.ts"
+*/
 
 async account_signIn() {
 
