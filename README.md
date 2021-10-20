@@ -4,7 +4,7 @@ and webdriver based automation to test specific parts of the Nike website.
 The coding language used will be JavaScript.
 The Jira page includes all testing methods used and shows error reports of bugs found.
 
-Here's a link to my Jira page for a better understanding of the project
+Here's a link to my JIRA PAGE for a better understanding of the project
 https://dmutah.atlassian.net/browse/PT3GS-1
 
 Link to field validation bug at Checkout Process: https://dmutah.atlassian.net/browse/PT3GS-17
