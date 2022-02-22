@@ -1,7 +1,7 @@
 # Nike_Project
 This is a Quality Assurance Test Project of www.Nike.com using the selenium 
 and webdriver based automation to test specific parts of the Nike website.
-The coding language used will be JavaScript.
+The coding language used is JavaScript.
 The Jira page includes all testing methods used and shows error reports of bugs found.
 
 Here's a link to my JIRA PAGE for a better understanding of the project
